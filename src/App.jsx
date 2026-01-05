@@ -67,7 +67,7 @@ const App = () => {
       badge: "Surprise Element",
       description:
         "Surprises Are Great!!!!!",
-      technologies: ["To Be Revealed Soon"],
+      technologies: ["To Be Revealed Soon!!!"],
       githubUrl: "#",
       liveUrl: "#",
       note: "Surprise Element – Soon to be published",
