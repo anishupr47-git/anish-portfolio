@@ -18,9 +18,10 @@ import {
   Rocket,
   Palette,
   Terminal,
+  CircuitBoard,
 } from "lucide-react";
 
-const CV_URL = "/CV-Anish_Upreti.pdf";
+const CV_URL = "/Anish_Upreti.pdf";
 const PROFILE_IMAGE = "/anish.jpg";
 
 const App = () => {
@@ -106,10 +107,17 @@ const App = () => {
           <div className="bg-white/70 dark:bg-slate-700/80 p-2.5 rounded-lg mr-3">
             <IconComponent className="text-cyan-500" size={22} />
           </div>
+
           <div>
-            <h3 className="font-semibold text-slate-800 dark:text-slate-100 text-base">{skill.name}</h3>
+            <h3 className="font-semibold text-slate-800 dark:text-slate-100 text-base">
+              {skill.name}
+            </h3>
+
             <div className="flex items-center mt-1 text-xs gap-2">
-              <span className="text-slate-500 dark:text-slate-400">{skill.category}</span>
+              <span className="text-slate-500 dark:text-slate-400">
+                {skill.category}
+              </span>
+
               {isLearning && (
                 <span className="text-[11px] bg-orange-500/15 text-orange-500 px-2 py-[2px] rounded-full border border-orange-500/30">
                   Learning
@@ -118,6 +126,7 @@ const App = () => {
             </div>
           </div>
         </div>
+
         <div className="bg-slate-200 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
           <div
             className={`h-2 rounded-full transition-all duration-700 ease-out ${
@@ -128,8 +137,81 @@ const App = () => {
             style={{ width: `${skill.level}%` }}
           />
         </div>
+
         <div className="text-right mt-2">
-          <span className="text-xs text-slate-500 dark:text-slate-400">{skill.level}%</span>
+          <span className="text-xs text-slate-500 dark:text-slate-400">
+            {skill.level}%
+          </span>
+        </div>
+      </div>
+    );
+  };
+
+  const ProjectCard = ({ project }) => {
+    return (
+      <div className="bg-white/5 dark:bg-slate-900/60 backdrop-blur-md rounded-2xl overflow-hidden border border-slate-200/30 dark:border-slate-700/60 hover:border-cyan-400/70 hover:shadow-lg hover:shadow-cyan-500/15 transition-all duration-300 flex flex-col">
+        <div className="relative overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-48 object-cover transition-transform duration-500 hover:scale-105"
+          />
+
+          <div className="absolute top-3 left-3 bg-slate-900/85 text-[11px] text-slate-100 px-3 py-1 rounded-full flex items-center gap-1">
+            <Calendar size={12} />
+            <span>{project.status}</span>
+          </div>
+
+          {project.badge && (
+            <div className="absolute top-3 right-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-[11px] text-white px-3 py-1 rounded-full shadow-md">
+              {project.badge}
+            </div>
+          )}
+        </div>
+
+        <div className="p-5 flex-1 flex flex-col">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-50 mb-2">
+            {project.title}
+          </h3>
+
+          <p className="text-sm text-slate-600 dark:text-slate-300 mb-3 leading-relaxed">
+            {project.description}
+          </p>
+
+          <p className="text-xs text-cyan-500 mb-3">
+            {project.note || "Under development"}
+          </p>
+
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.technologies.map((tech, idx) => (
+              <span
+                key={idx}
+                className="bg-slate-100 dark:bg-slate-800 text-cyan-700 dark:text-cyan-300 px-2 py-1 rounded-full text-[11px] border border-slate-200 dark:border-slate-700"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-auto flex gap-3">
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex-1 inline-flex items-center justify-center text-xs md:text-sm bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-cyan-300 px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 hover:border-cyan-500 transition-colors"
+            >
+              <Github size={14} className="mr-1" />
+              Code (GitHub soon)
+            </a>
+
+            <button
+              type="button"
+              className="flex-1 inline-flex items-center justify-center text-xs md:text-sm bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-3 py-2 rounded-lg hover:from-cyan-400 hover:to-blue-400 transition-colors"
+            >
+              <Eye size={14} className="mr-1" />
+              Soon to be published
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -144,7 +226,7 @@ const App = () => {
       className={`min-h-screen ${themeWrapperClass} transition-colors duration-500`}
       style={{
         fontFamily:
-          '"Nunito","Poppins","Segoe UI","system-ui",-apple-system,BlinkMacSystemFont,"Helvetica","Arial",sans-serif',
+          '"Nunito","Poppins","Segoe UI","system-ui",-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica","Arial",sans-serif',
       }}
     >
       <div className="fixed inset-0 -z-10 opacity-60 pointer-events-none">
@@ -158,11 +240,13 @@ const App = () => {
             <div className="h-9 w-9 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shadow-md shadow-cyan-500/40">
               <Terminal className="text-white" size={18} />
             </div>
+
             <div className="flex flex-col leading-tight">
               <span className="text-[11px] tracking-[0.28em] uppercase text-slate-500 dark:text-slate-400">
                 Portfolio
               </span>
-              <span className="text-xl font-semibold tracking-wide bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
+
+              <span className="text-xl font-semibold tracking-wide bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent dark:drop-shadow-[0_0_18px_rgba(34,211,238,0.8)]">
                 Anish Upreti
               </span>
             </div>
@@ -173,12 +257,13 @@ const App = () => {
               <a
                 key={item}
                 href={`#${item}`}
-                className="relative text-[11px] tracking-[0.2em] uppercase text-slate-600 dark:text-slate-100 hover:text-cyan-400 transition-colors group"
+                className="relative text-[11px] tracking-[0.2em] uppercase text-slate-600 dark:text-slate-100 dark:drop-shadow-[0_0_12px_rgba(34,211,238,0.7)] hover:text-cyan-400 transition-colors group"
               >
                 {item}
                 <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-cyan-500 to-blue-500 group-hover:w-full transition-all" />
               </a>
             ))}
+
             <button
               onClick={() => setIsDarkMode((prev) => !prev)}
               className="ml-3 text-[11px] px-3 py-1.5 rounded-full border border-slate-300 dark:border-slate-600 bg-white/70 dark:bg-slate-800/80"
@@ -194,6 +279,7 @@ const App = () => {
             >
               {isDarkMode ? "Dark" : "Light"}
             </button>
+
             <button
               onClick={() => setIsMenuOpen((prev) => !prev)}
               className="p-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80"
@@ -222,6 +308,7 @@ const App = () => {
       </header>
 
       <main className="max-w-6xl mx-auto px-4">
+        
         <section className="py-12 md:py-16 flex flex-col md:flex-row items-center gap-10">
           <div className="flex-1">
             <p className="text-[11px] uppercase tracking-[0.25em] text-cyan-300 mb-3 flex items-center gap-2">
@@ -229,22 +316,22 @@ const App = () => {
               Software Engineering Student • Kathmandu, Nepal
             </p>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight dark:drop-shadow-[0_0_22px_rgba(34,211,238,0.7)]">
               Building clean, scalable{" "}
               <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 full stack experiences
               </span>{" "}
-              and exploring AI.
+              and exploring what&apos;s next with AI.
             </h1>
 
             <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 mb-6 max-w-xl">
-              I enjoy taking ideas from concept to polished digital products, focusing on clean backend architecture and smooth, modern UI/UX.
+              I&apos;m a Software Engineering student with practical experience as a full stack developer. I enjoy taking ideas from a simple brief to a working product, pairing solid backend design with interfaces that feel modern, simple and trustworthy.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-6">
               <a
                 href="#projects"
-                className="inline-flex items-center text-sm px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-md"
+                className="inline-flex items-center text-sm px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-md hover:shadow-lg hover:from-cyan-400 hover:to-blue-400 transition-all"
               >
                 <Rocket size={16} className="mr-2" />
                 View Projects
@@ -252,39 +339,66 @@ const App = () => {
 
               <a
                 href="#cv"
-                className="inline-flex items-center text-sm px-6 py-2.5 rounded-full border border-slate-300 dark:border-slate-600"
+                className="inline-flex items-center text-sm px-6 py-2.5 rounded-full border border-slate-300 dark:border-slate-600 text-slate-800 dark:text-slate-100 hover:border-cyan-400 transition-all"
               >
                 <ExternalLink size={16} className="mr-2" />
                 View CV
               </a>
             </div>
 
-            <div className="flex flex-wrap gap-2">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="p-2 rounded-full border border-slate-200 dark:border-slate-700"
-                >
-                  <social.icon size={16} />
-                </a>
-              ))}
+            <div className="flex flex-wrap items-center gap-4 mb-4">
+              <div className="flex flex-wrap gap-2">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-2 rounded-full border border-slate-200 dark:border-slate-700 hover:border-cyan-400 hover:text-cyan-400 transition-colors"
+                  >
+                    <social.icon size={16} />
+                  </a>
+                ))}
+              </div>
+
+              <div className="text-[11px] px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/40">
+                Open to internships & projects
+              </div>
             </div>
           </div>
 
           <div className="flex-1 flex justify-center">
             <div className="relative">
               <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-cyan-500/40 via-transparent to-blue-500/30 blur-2xl" />
+
               <div className="relative bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-700 rounded-3xl p-5 shadow-xl max-w-xs w-full text-center">
-                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-4 overflow-hidden border-2 border-cyan-400/70">
-                  <img src={PROFILE_IMAGE} className="w-full h-full object-cover" />
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-4 overflow-hidden border-2 border-cyan-400/70 shadow-md shadow-cyan-500/40">
+                  <img
+                    src={PROFILE_IMAGE}
+                    alt="Profile"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <p className="text-base font-semibold">Anish Upreti</p>
+
+                <p className="text-base font-semibold text-slate-900 dark:text-slate-50">
+                  Anish Upreti
+                </p>
+
                 <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
                   Full Stack Developer • AI Enthusiast
                 </p>
+
+                <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-600 dark:text-slate-300">
+                  <div className="rounded-xl bg-slate-100/80 dark:bg-slate-800/60 p-2.5">
+                    <p className="font-semibold text-xs">1+ years</p>
+                    <p>Professional Experience</p>
+                  </div>
+
+                  <div className="rounded-xl bg-slate-100/80 dark:bg-slate-800/60 p-2.5">
+                    <p className="font-semibold text-xs">Django • React</p>
+                    <p>Primary Stack</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -292,23 +406,30 @@ const App = () => {
 
         <section id="about" className="py-10">
           <div className="max-w-3xl">
-            <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-2">
+            <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-2 dark:text-cyan-300 dark:drop-shadow-[0_0_18px_rgba(34,211,238,0.8)]">
               <Code size={18} className="text-cyan-400" />
               About Me
             </h2>
 
-            <div className="bg-white/95 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 text-sm md:text-base space-y-4 leading-relaxed">
+            <div className="bg-white/95 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 text-sm md:text-base space-y-4 leading-relaxed text-slate-700 dark:text-slate-100">
               <p>
-                I am a Software Engineering student passionate about building real-world applications that balance performance, usability, and aesthetics.
+                I am a Software Engineering student at Nepal College of Information Technology, currently building my foundation through both academic projects and professional full stack work. I enjoy creating products that feel simple on the surface but are thoughtfully engineered underneath.
               </p>
+
               <p>
-                I’ve worked across backend systems, dashboards, event platforms, and IT infrastructure — learning how real users interact with technology.
+                My experience at Nexus Events and IT Solutions started as a full stack intern and grew into a full stack developer role. I worked on event management platforms, contributed to dashboards, handled forms, authentication and data displays, and learned how real users interact with the features we ship.
               </p>
+
               <p>
-                My main stack: Python, Django, REST APIs, PostgreSQL, React and Tailwind.
+                At Aksharaa School, I supported IT administration and infrastructure. That involved dealing with networks, hardware and school data workflows, which made me appreciate the reliability side of engineering as much as the visual side of a UI.
               </p>
+
               <p>
-                I’m also exploring Machine Learning and AI integration to build practical, helpful tools.
+                On the technical side, my main stack is Python, Django, REST APIs and PostgreSQL on the backend, combined with React, modern JavaScript and Tailwind CSS on the frontend. I like paying attention to UX details, responsive layouts and small animations that make an interface feel smooth without being distracting.
+              </p>
+
+              <p>
+                I am also exploring Machine Learning and AI integration, with the goal of bringing practical AI features into products, not just theory. I enjoy taking complex ideas, breaking them down and explaining them clearly so that non-technical people can follow the thinking and feel confident using what we build.
               </p>
             </div>
           </div>
@@ -316,18 +437,19 @@ const App = () => {
 
         <section id="cv" className="py-8">
           <div className="max-w-3xl">
-            <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-2">
+            <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-2 dark:text-cyan-300 dark:drop-shadow-[0_0_18px_rgba(34,211,238,0.8)]">
               <ExternalLink size={18} className="text-cyan-400" />
               CV / Resume
             </h2>
 
             <div className="bg-white/95 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 text-sm flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div>
+              <div className="text-slate-600 dark:text-slate-200">
                 <p className="mb-1 font-medium">
-                  View or download my CV in PDF format.
+                  Want the full story with dates, roles and responsibilities?
                 </p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
-                  Contains education, experience and skills.
+
+                <p className="text-xs">
+                  Download or view my CV as a PDF, including education, experience and technical skills.
                 </p>
               </div>
 
@@ -335,7 +457,7 @@ const App = () => {
                 href={CV_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center text-xs md:text-sm px-5 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white"
+                className="inline-flex items-center text-xs md:text-sm px-5 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:from-cyan-400 hover:to-blue-400 transition-all"
               >
                 <ExternalLink size={14} className="mr-2" />
                 Open CV (PDF)
@@ -345,7 +467,7 @@ const App = () => {
         </section>
 
         <section id="skills" className="py-12">
-          <h2 className="text-xl md:text-2xl font-semibold mb-5 flex items-center gap-2">
+          <h2 className="text-xl md:text-2xl font-semibold mb-5 flex items-center gap-2 dark:text-cyan-300 dark:drop-shadow-[0_0_18px_rgba(34,211,238,0.8)]">
             <Brain size={18} className="text-cyan-400" />
             Skills & Tools
           </h2>
@@ -358,24 +480,40 @@ const App = () => {
         </section>
 
         <section id="projects" className="py-12">
-          <h2 className="text-xl md:text-2xl font-semibold mb-5 flex items-center gap-2">
+          <h2 className="text-xl md:text-2xl font-semibold mb-5 flex items-center gap-2 dark:text-cyan-300 dark:drop-shadow-[0_0_18px_rgba(34,211,238,0.8)]">
             <GitBranch size={18} className="text-cyan-400" />
             Projects
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project) => (
-              <div
-                key={project.id}
-                className="bg-white/5 dark:bg-slate-900/60 backdrop-blur-md rounded-2xl overflow-hidden border border-slate-200/30 dark:border-slate-700/60 flex flex-col"
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        </section>
+
+        <section id="contact" className="py-12">
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-2 dark:text-cyan-300 dark:drop-shadow-[0_0_18px_rgba(34,211,238,0.8)]">
+            <Mail size={18} className="text-cyan-400" />
+            Contact
+          </h2>
+
+          <p className="text-sm md:text-base mb-6 max-w-xl text-slate-600 dark:text-slate-300">
+            I am open to collaborations, internships and roles where I can contribute as a full stack developer while growing deeper into AI and modern web technologies. If something here caught your eye, feel free to reach out.
+          </p>
+
+          <div className="flex flex-wrap gap-3 mb-4">
+            {socialLinks.map((social) => (
+              <a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-xs md:text-sm px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700 hover:border-cyan-400 hover:text-cyan-400 transition-colors"
               >
-                <img src={project.image} className="w-full h-44 object-cover" />
-                <div className="p-5">
-                  <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
-                  <p className="text-sm mb-2">{project.description}</p>
-                  <p className="text-xs text-cyan-500">{project.note}</p>
-                </div>
-              </div>
+                <social.icon size={14} />
+                {social.name}
+              </a>
             ))}
           </div>
         </section>
