@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Github,
   Mail,
@@ -25,6 +25,13 @@ const PROFILE_IMAGE = "/anish.jpg";
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDarkMode]);
   const projects = [
     {
       id: 1,
@@ -57,8 +64,7 @@ const App = () => {
       title: "Surprise Incoming!!!",
       status: "Surprise Incoming!!!",
       badge: "Surprise Element",
-      description:
-        "SURPRISES ARE GREAT!!!",
+      description: "SURPRISES ARE GREAT!!!",
       technologies: ["TO BE REVEALED SOON!!!"],
       githubUrl: "#",
       liveUrl: "#",
@@ -455,5 +461,4 @@ const App = () => {
     </div>
   );
 };
-
 export default App;
