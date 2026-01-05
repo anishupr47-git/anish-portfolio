@@ -21,7 +21,7 @@ import {
   CircuitBoard,
 } from "lucide-react";
 
-const CV_URL = "/CV-Anish_Upreti.pdf";
+const CV_URL = "/Anish_Upreti.pdf";
 const PROFILE_IMAGE = "/anish.jpg";
 
 const App = () => {
@@ -229,8 +229,9 @@ const App = () => {
         <div className="absolute -top-32 -left-24 w-80 h-80 bg-cyan-400/18 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl" />
       </div>
+
       <header className="sticky top-0 z-40 border-b border-slate-200/50 dark:border-slate-800/70 backdrop-blur-xl bg-white/85 dark:bg-slate-950/85">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="h-9 w-9 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shadow-md shadow-cyan-500/40">
               <Terminal className="text-white" size={18} />
@@ -279,7 +280,7 @@ const App = () => {
         </div>
         {isMenuOpen && (
           <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95">
-            <div className="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-2">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col gap-2">
               {["about", "skills", "projects", "contact"].map((item) => (
                 <a
                   key={item}
@@ -294,7 +295,8 @@ const App = () => {
           </div>
         )}
       </header>
-      <main className="max-w-6xl mx-auto px-4">
+
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <section className="py-12 md:py-16 flex flex-col md:flex-row items-center gap-10">
           <div className="flex-1">
             <p className="text-[11px] uppercase tracking-[0.25em] text-cyan-300 mb-3 flex items-center gap-2">
@@ -346,6 +348,7 @@ const App = () => {
               </div>
             </div>
           </div>
+
           <div className="flex-1 flex justify-center">
             <div className="relative">
               <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-cyan-500/40 via-transparent to-blue-500/30 blur-2xl" />
@@ -373,6 +376,7 @@ const App = () => {
             </div>
           </div>
         </section>
+
         <section id="about" className="py-10">
           <div className="max-w-3xl">
             <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-2 dark:text-cyan-300 dark:drop-shadow-[0_0_18px_rgba(34,211,238,0.8)]">
@@ -398,6 +402,7 @@ const App = () => {
             </div>
           </div>
         </section>
+
         <section id="cv" className="py-8">
           <div className="max-w-3xl">
             <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-2 dark:text-cyan-300 dark:drop-shadow-[0_0_18px_rgba(34,211,238,0.8)]">
@@ -425,6 +430,7 @@ const App = () => {
             </div>
           </div>
         </section>
+
         <section id="skills" className="py-12">
           <h2 className="text-xl md:text-2xl font-semibold mb-5 flex items-center gap-2 dark:text-cyan-300 dark:drop-shadow-[0_0_18px_rgba(34,211,238,0.8)]">
             <Brain size={18} className="text-cyan-400" />
@@ -436,6 +442,7 @@ const App = () => {
             ))}
           </div>
         </section>
+
         <section id="projects" className="py-12">
           <h2 className="text-xl md:text-2xl font-semibold mb-5 flex items-center gap-2 dark:text-cyan-300 dark:drop-shadow-[0_0_18px_rgba(34,211,238,0.8)]">
             <GitBranch size={18} className="text-cyan-400" />
@@ -447,6 +454,7 @@ const App = () => {
             ))}
           </div>
         </section>
+
         <section id="contact" className="py-12">
           <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-2 dark:text-cyan-300 dark:drop-shadow-[0_0_18px_rgba(34,211,238,0.8)]">
             <Mail size={18} className="text-cyan-400" />
@@ -471,8 +479,9 @@ const App = () => {
           </div>
         </section>
       </main>
+
       <footer className="border-t border-slate-200/60 dark:border-slate-800/70 mt-8">
-        <div className="max-w-6xl mx-auto px-4 py-4 text-[11px] md:text-xs flex flex-col md:flex-row items-center justify-between gap-2 text-slate-500 dark:text-slate-400">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-[11px] md:text-xs flex flex-col md:flex-row items-center justify-between gap-2 text-slate-500 dark:text-slate-400">
           <span>&copy; {new Date().getFullYear()} Anish Upreti. All rights reserved.</span>
           <span>Built with React & Tailwind</span>
         </div>
