@@ -39,7 +39,7 @@ const App = () => {
       badge: "Full Stack + UX Focus",
       description:
         "Multi-user platform for attendance, grading, and parent–teacher communication with a clean, intuitive interface for non-technical users.",
-      technologies: ["Django", "React", "PostgreSQL", "Tailwind CSS"],
+      technologies: ["Django", "React", "PostgreSQL", "Tailwind CSS", "REST API","DOCKER"],
       githubUrl: "#",
       liveUrl: "#",
       note: "Soon to be published",
@@ -53,7 +53,7 @@ const App = () => {
       badge: "Full Stack + AI Plans",
       description:
         "System to manage patient records, doctor schedules and billing, designed with future AI-assisted triage and insights in mind.",
-      technologies: ["Django", "REST API", "PostgreSQL"],
+      technologies: ["Django", "React", "PostgreSQL", "Tailwind CSS", "REST API","DOCKER"],
       githubUrl: "#",
       liveUrl: "#",
       note: "Soon to be published",
@@ -66,8 +66,8 @@ const App = () => {
       status: "Surprise Incoming!!!",
       badge: "Surprise Element",
       description:
-        "Personal portfolio experience with a planned surprise feature to showcase creativity beyond a standard developer site.",
-      technologies: ["React", "Tailwind CSS", "Vercel"],
+        "Surprises Are Great!!!!!",
+      technologies: ["To Be Revealed Soon"],
       githubUrl: "#",
       liveUrl: "#",
       note: "Surprise Element – Soon to be published",
