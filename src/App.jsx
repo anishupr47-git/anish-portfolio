@@ -42,7 +42,8 @@ const App = () => {
       githubUrl: "#",
       liveUrl: "#",
       note: "Soon to be published",
-      image: "https://placehold.co/600x400/020617/38bdf8?text=School+Management+System",
+      image:
+        "https://placehold.co/600x400/020617/38bdf8?text=School+Management+System",
     },
     {
       id: 2,
@@ -55,7 +56,8 @@ const App = () => {
       githubUrl: "#",
       liveUrl: "#",
       note: "Soon to be published",
-      image: "https://placehold.co/600x400/020617/38bdf8?text=Hospital+Management+System",
+      image:
+        "https://placehold.co/600x400/020617/38bdf8?text=Hospital+Management+System",
     },
     {
       id: 3,
@@ -68,7 +70,8 @@ const App = () => {
       githubUrl: "#",
       liveUrl: "#",
       note: "Surprise Element – Soon to be published",
-      image: "https://placehold.co/600x400/020617/38bdf8?text=Surprise+Incoming!!!",
+      image:
+        "https://placehold.co/600x400/020617/38bdf8?text=Surprise+Incoming!!!",
     },
   ];
 
@@ -96,6 +99,7 @@ const App = () => {
   const SkillBar = ({ skill }) => {
     const IconComponent = skill.icon;
     const isLearning = skill.status === "Learning";
+
     return (
       <div className="bg-white/5 dark:bg-slate-800/70 backdrop-blur-sm p-4 rounded-xl border border-slate-200/20 dark:border-slate-700/60 hover:border-cyan-400/60 transition-all duration-300">
         <div className="flex items-center mb-3">
@@ -103,9 +107,7 @@ const App = () => {
             <IconComponent className="text-cyan-500" size={22} />
           </div>
           <div>
-            <h3 className="font-semibold text-slate-800 dark:text-slate-100 text-base">
-              {skill.name}
-            </h3>
+            <h3 className="font-semibold text-slate-800 dark:text-slate-100 text-base">{skill.name}</h3>
             <div className="flex items-center mt-1 text-xs gap-2">
               <span className="text-slate-500 dark:text-slate-400">{skill.category}</span>
               {isLearning && (
@@ -219,7 +221,172 @@ const App = () => {
         )}
       </header>
 
-  
+      <main className="max-w-6xl mx-auto px-4">
+        <section className="py-12 md:py-16 flex flex-col md:flex-row items-center gap-10">
+          <div className="flex-1">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-cyan-300 mb-3 flex items-center gap-2">
+              <span className="inline-flex h-[1px] w-10 bg-gradient-to-r from-cyan-500 to-blue-500" />
+              Software Engineering Student • Kathmandu, Nepal
+            </p>
+
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+              Building clean, scalable{" "}
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                full stack experiences
+              </span>{" "}
+              and exploring AI.
+            </h1>
+
+            <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 mb-6 max-w-xl">
+              I enjoy taking ideas from concept to polished digital products, focusing on clean backend architecture and smooth, modern UI/UX.
+            </p>
+
+            <div className="flex flex-wrap gap-3 mb-6">
+              <a
+                href="#projects"
+                className="inline-flex items-center text-sm px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-md"
+              >
+                <Rocket size={16} className="mr-2" />
+                View Projects
+              </a>
+
+              <a
+                href="#cv"
+                className="inline-flex items-center text-sm px-6 py-2.5 rounded-full border border-slate-300 dark:border-slate-600"
+              >
+                <ExternalLink size={16} className="mr-2" />
+                View CV
+              </a>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-2 rounded-full border border-slate-200 dark:border-slate-700"
+                >
+                  <social.icon size={16} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex-1 flex justify-center">
+            <div className="relative">
+              <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-cyan-500/40 via-transparent to-blue-500/30 blur-2xl" />
+              <div className="relative bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-700 rounded-3xl p-5 shadow-xl max-w-xs w-full text-center">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-4 overflow-hidden border-2 border-cyan-400/70">
+                  <img src={PROFILE_IMAGE} className="w-full h-full object-cover" />
+                </div>
+                <p className="text-base font-semibold">Anish Upreti</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
+                  Full Stack Developer • AI Enthusiast
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="py-10">
+          <div className="max-w-3xl">
+            <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-2">
+              <Code size={18} className="text-cyan-400" />
+              About Me
+            </h2>
+
+            <div className="bg-white/95 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 text-sm md:text-base space-y-4 leading-relaxed">
+              <p>
+                I am a Software Engineering student passionate about building real-world applications that balance performance, usability, and aesthetics.
+              </p>
+              <p>
+                I’ve worked across backend systems, dashboards, event platforms, and IT infrastructure — learning how real users interact with technology.
+              </p>
+              <p>
+                My main stack: Python, Django, REST APIs, PostgreSQL, React and Tailwind.
+              </p>
+              <p>
+                I’m also exploring Machine Learning and AI integration to build practical, helpful tools.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="cv" className="py-8">
+          <div className="max-w-3xl">
+            <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-2">
+              <ExternalLink size={18} className="text-cyan-400" />
+              CV / Resume
+            </h2>
+
+            <div className="bg-white/95 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 text-sm flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <p className="mb-1 font-medium">
+                  View or download my CV in PDF format.
+                </p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  Contains education, experience and skills.
+                </p>
+              </div>
+
+              <a
+                href={CV_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center text-xs md:text-sm px-5 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white"
+              >
+                <ExternalLink size={14} className="mr-2" />
+                Open CV (PDF)
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" className="py-12">
+          <h2 className="text-xl md:text-2xl font-semibold mb-5 flex items-center gap-2">
+            <Brain size={18} className="text-cyan-400" />
+            Skills & Tools
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {skills.map((skill) => (
+              <SkillBar key={skill.name} skill={skill} />
+            ))}
+          </div>
+        </section>
+
+        <section id="projects" className="py-12">
+          <h2 className="text-xl md:text-2xl font-semibold mb-5 flex items-center gap-2">
+            <GitBranch size={18} className="text-cyan-400" />
+            Projects
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                className="bg-white/5 dark:bg-slate-900/60 backdrop-blur-md rounded-2xl overflow-hidden border border-slate-200/30 dark:border-slate-700/60 flex flex-col"
+              >
+                <img src={project.image} className="w-full h-44 object-cover" />
+                <div className="p-5">
+                  <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
+                  <p className="text-sm mb-2">{project.description}</p>
+                  <p className="text-xs text-cyan-500">{project.note}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-slate-200/60 dark:border-slate-800/70 mt-8">
+        <div className="max-w-6xl mx-auto px-4 py-4 text-[11px] md:text-xs flex flex-col md:flex-row items-center justify-between gap-2 text-slate-500 dark:text-slate-400">
+          <span>&copy; {new Date().getFullYear()} Anish Upreti. All rights reserved.</span>
+          <span>Built with React & Tailwind</span>
+        </div>
+      </footer>
     </div>
   );
 };
