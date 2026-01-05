@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Github,
   Mail,
@@ -20,11 +20,30 @@ import {
   Terminal,
   CircuitBoard,
 } from "lucide-react";
-const CV_URL = "/Anish_Upreti.pdf";
+
+const CV_URL = "/CV-Anish_Upreti.pdf";
 const PROFILE_IMAGE = "/anish.jpg";
+
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window === "undefined") return true;
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark") return true;
+    if (saved === "light") return false;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDarkMode]);
+
   const projects = [
     {
       id: 1,
@@ -33,7 +52,7 @@ const App = () => {
       badge: "Full Stack + UX Focus",
       description:
         "Multi-user platform for attendance, grading, and parent–teacher communication with a clean, intuitive interface for non-technical users.",
-      technologies: ["Django", "React", "PostgreSQL", "Tailwind CSS", "REST API", "DOCKER"],
+      technologies: ["Django", "React", "PostgreSQL", "Tailwind CSS"],
       githubUrl: "#",
       liveUrl: "#",
       note: "Soon to be published",
@@ -46,7 +65,7 @@ const App = () => {
       badge: "Full Stack + AI Plans",
       description:
         "System to manage patient records, doctor schedules and billing, designed with future AI-assisted triage and insights in mind.",
-      technologies: ["Django", "React", "PostgreSQL", "Tailwind CSS", "REST API", "DOCKER"],
+      technologies: ["Django", "REST API", "PostgreSQL"],
       githubUrl: "#",
       liveUrl: "#",
       note: "Soon to be published",
@@ -58,14 +77,15 @@ const App = () => {
       status: "Surprise Incoming!!!",
       badge: "Surprise Element",
       description:
-        "SURPRISES ARE GREAT!!!",
-      technologies: ["TO BE REVEALED SOON!!!"],
+        "Personal portfolio experience with a planned surprise feature to showcase creativity beyond a standard developer site.",
+      technologies: ["React", "Tailwind CSS", "Vercel"],
       githubUrl: "#",
       liveUrl: "#",
       note: "Surprise Element – Soon to be published",
       image: "https://placehold.co/600x400/020617/38bdf8?text=Surprise+Incoming!!!",
     },
   ];
+
   const skills = [
     { name: "Python", icon: Code, level: 75, category: "Backend", status: "Proficient" },
     { name: "Django", icon: Database, level: 75, category: "Backend", status: "Proficient" },
@@ -79,12 +99,14 @@ const App = () => {
     { name: "AI Integration", icon: Zap, level: 60, category: "AI / ML", status: "Learning" },
     { name: "Git & GitHub", icon: GitBranch, level: 80, category: "Tools", status: "Proficient" },
   ];
+
   const socialLinks = [
     { name: "GitHub", icon: Github, url: "https://github.com/anishupr47-git" },
     { name: "LinkedIn", icon: Linkedin, url: "https://linkedin.com/in/anishupreti47" },
     { name: "Twitter", icon: Twitter, url: "https://twitter.com/anish47" },
     { name: "Email", icon: Mail, url: "mailto:anish.upr.47@gmail.com" },
   ];
+
   const SkillBar = ({ skill }) => {
     const IconComponent = skill.icon;
     const isLearning = skill.status === "Learning";
@@ -128,6 +150,7 @@ const App = () => {
       </div>
     );
   };
+
   const ProjectCard = ({ project }) => {
     return (
       <div className="bg-white/5 dark:bg-slate-900/60 backdrop-blur-md rounded-2xl overflow-hidden border border-slate-200/30 dark:border-slate-700/60 hover:border-cyan-400/70 hover:shadow-lg hover:shadow-cyan-500/15 transition-all duration-300 flex flex-col">
@@ -189,9 +212,11 @@ const App = () => {
       </div>
     );
   };
+
   const themeWrapperClass = isDarkMode
     ? "bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100"
     : "bg-gradient-to-br from-slate-50 via-white to-slate-100 text-slate-900";
+
   return (
     <div
       className={`min-h-screen ${themeWrapperClass} transition-colors duration-500`}
