@@ -40,9 +40,9 @@ const App = () => {
       description:
         "Multi-user platform for attendance, grading, and parent–teacher communication with a clean, intuitive interface for non-technical users.",
       technologies: ["Django", "React", "PostgreSQL", "Tailwind CSS", "REST API", "DOCKER"],
-      githubUrl: "#",
-      liveUrl: "#",
-      note: "Soon to be published",
+      githubUrl: "https://github.com/anishupr47-git/School-Management-System",
+      liveUrl: "https://github.com/anishupr47-git/School-Management-System",
+      note: "Can Be Viewed VIA LinkedIN",
       image:
         "https://placehold.co/600x400/020617/38bdf8?text=School+Management+System",
     },
@@ -62,17 +62,17 @@ const App = () => {
     },
     {
       id: 3,
-      title: "Surprise Incoming!!!",
-      status: "Surprise Incoming!!!",
-      badge: "Surprise Element",
+      title: "Election Awareness Nepal",
+      status: "Completed",
+      badge: "Full Stack + AI plans",
       description:
-        "Surprises Are Great!!!!!!!!",
-      technologies: ["WILL BE REVEALED SOON!!!"],
-      githubUrl: "#",
-      liveUrl: "#",
-      note: "Surprise Element – Soon to be published",
+        "A website to aware every nepali to use their voting right correctly and lead the country towards a better future",
+      technologies: ["Django", "React", "PostgreSQL", "Tailwind CSS", "REST API", "DOCKER"],
+      githubUrl: "https://github.com/anishupr47-git/Election-Awareness-Nepal",
+      liveUrl: "https://election-awareness-nepal-git-main-anishs-projects-cd54f7d8.vercel.app?_vercel_share=7JK2fh9EZf770aaa2aJTfIFMqUbEE6rj",
+      note: "Completed",
       image:
-        "https://placehold.co/600x400/020617/38bdf8?text=Surprise+Incoming!!!",
+        "https://placehold.co/600x400/020617/38bdf8?text=Election Awareness Nepal",
     },
   ];
 
