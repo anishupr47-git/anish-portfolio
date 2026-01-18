@@ -201,7 +201,7 @@ const App = () => {
               className="flex-1 inline-flex items-center justify-center text-xs md:text-sm bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-cyan-300 px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 hover:border-cyan-500 transition-colors"
             >
               <Github size={14} className="mr-1" />
-              Code (GitHub soon)
+              Code (GitHub)
             </a>
 
             <button
@@ -209,7 +209,7 @@ const App = () => {
               className="flex-1 inline-flex items-center justify-center text-xs md:text-sm bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-3 py-2 rounded-lg hover:from-cyan-400 hover:to-blue-400 transition-colors"
             >
               <Eye size={14} className="mr-1" />
-              Soon to be published
+              
             </button>
           </div>
         </div>
