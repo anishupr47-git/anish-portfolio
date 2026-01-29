@@ -21,7 +21,7 @@ import {
   CircuitBoard,
 } from "lucide-react";
 
-const CV_URL = "/Anish_Upreti.pdf";
+const CV_URL = "/Anish_Upreti-CV.pdf";
 const PROFILE_IMAGE = "/anish.jpg";
 
 const App = () => {
@@ -35,8 +35,8 @@ const App = () => {
     {
       id: 1,
       title: "School Management System",
-      status: "Under Development",
-      badge: "Full Stack + UX Focus",
+      status: "Completed",
+      badge: "Full Stack + AI Focus",
       description:
         "Multi-user platform for attendance, grading, and parent–teacher communication with a clean, intuitive interface for non-technical users.",
       technologies: ["Django", "React", "PostgreSQL", "Tailwind CSS", "REST API", "DOCKER"],
@@ -49,14 +49,14 @@ const App = () => {
     {
       id: 2,
       title: "Hospital Management System",
-      status: "Under Development",
+      status: "Completed",
       badge: "Full Stack + AI Plans",
       description:
-        "System to manage patient records, doctor schedules and billing, designed with future AI-assisted triage and insights in mind.",
+        "System to manage patient records, doctor schedules and management, designed with future AI-assisted triage and insights in mind.",
       technologies: ["Django", "React", "PostgreSQL", "Tailwind CSS", "REST API", "DOCKER"],
-      githubUrl: "#",
-      liveUrl: "#",
-      note: "Soon to be published",
+      githubUrl: "https://github.com/anishupr47-git/hhhospital-management-system",
+      liveUrl: "https://hhhospital-management-system.vercel.app/",
+      note: " Published",
       image:
         "https://placehold.co/600x400/020617/38bdf8?text=Hospital+Management+System",
     },
@@ -69,7 +69,7 @@ const App = () => {
         "A website to aware every nepali to use their voting right correctly and lead the country towards a better future",
       technologies: ["Django", "React", "PostgreSQL", "Tailwind CSS", "REST API", "DOCKER"],
       githubUrl: "https://github.com/anishupr47-git/Election-Awareness-Nepal",
-      liveUrl: "https://election-awareness-nepal-git-main-anishs-projects-cd54f7d8.vercel.app?_vercel_share=7JK2fh9EZf770aaa2aJTfIFMqUbEE6rj",
+      liveUrl: "https://election-awareness-nepal.vercel.app?_vercel_share=tpr8t4fgl7zpteA1OdBrczU3gkYboJ9D",
       note: "Completed",
       image:
         "https://placehold.co/600x400/020617/38bdf8?text=Election Awareness Nepal",
