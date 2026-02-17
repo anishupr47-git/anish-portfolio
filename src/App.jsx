@@ -18,6 +18,7 @@ import {
   Rocket,
   Palette,
   Terminal,
+  Cloud,
   CircuitBoard,
 } from "lucide-react";
 
@@ -38,7 +39,7 @@ const App = () => {
       status: "Completed",
       badge: "Full Stack + AI Focus",
       description:
-        "Multi-user platform for attendance, grading, and parent–teacher communication with a clean, intuitive interface for non-technical users.",
+        "Multi-user platform for attendance, grading, and parent-teacher communication with a clean, intuitive interface for non-technical users.",
       technologies: ["Django", "React", "PostgreSQL", "Tailwind CSS", "REST API", "DOCKER"],
       githubUrl: "https://github.com/anishupr47-git/School-Management-System",
       liveUrl: "https://github.com/anishupr47-git/School-Management-System",
@@ -101,7 +102,7 @@ const App = () => {
     { name: "HTML / CSS / Tailwind/ Javascript", icon: Palette, level: 80, category: "Frontend", status: "Proficient" },
     { name: "Docker", icon: Terminal, level: 70, category: "DevOps", status: "Learning" },
     { name: "Vercel", icon: Rocket, level: 65, category: "Deployment", status: "Proficient" },
-    { name: "Vercel", icon: Render, level: 65, category: "Deployment", status: "Proficient" },
+    { name: "Render", icon: Cloud, level: 65, category: "Deployment", status: "Proficient" },
     { name: "Machine Learning", icon: Brain, level: 45, category: "AI / ML", status: "Learning" },
     { name: "AI Integration", icon: Zap, level: 60, category: "AI / ML", status: "Learning" },
     { name: "Git & GitHub", icon: GitBranch, level: 80, category: "Tools", status: "Proficient" },
@@ -221,13 +222,15 @@ const App = () => {
               Code (GitHub)
             </a>
 
-            <button
-              type="button"
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noreferrer"
               className="flex-1 inline-flex items-center justify-center text-xs md:text-sm bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-3 py-2 rounded-lg hover:from-cyan-400 hover:to-blue-400 transition-colors"
             >
               <Eye size={14} className="mr-1" />
-              
-            </button>
+              Live Preview
+            </a>
           </div>
         </div>
       </div>
@@ -330,7 +333,7 @@ const App = () => {
           <div className="flex-1">
             <p className="text-[11px] uppercase tracking-[0.25em] text-cyan-300 mb-3 flex items-center gap-2">
               <span className="inline-flex h-[1px] w-10 bg-gradient-to-r from-cyan-500 to-blue-500" />
-              Software Engineering Student • Kathmandu, Nepal
+              Software Engineering Student - Kathmandu, Nepal
             </p>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight dark:drop-shadow-[0_0_22px_rgba(34,211,238,0.7)]">
@@ -402,7 +405,7 @@ const App = () => {
                 </p>
 
                 <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
-                  Full Stack Developer • AI Enthusiast
+                  Full Stack Developer - AI Enthusiast
                 </p>
 
                 <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-600 dark:text-slate-300">
@@ -412,7 +415,7 @@ const App = () => {
                   </div>
 
                   <div className="rounded-xl bg-slate-100/80 dark:bg-slate-800/60 p-2.5">
-                    <p className="font-semibold text-xs">Django • React</p>
+                    <p className="font-semibold text-xs">Django - React</p>
                     <p>Primary Stack</p>
                   </div>
                 </div>
@@ -547,3 +550,4 @@ const App = () => {
 };
 
 export default App;
+
