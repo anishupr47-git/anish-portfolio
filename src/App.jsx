@@ -21,7 +21,7 @@ import {
   CircuitBoard,
 } from "lucide-react";
 
-const CV_URL = "/Anish_Upreti-CV.pdf";
+const CV_URL = "/Anish_Upreti--CV.pdf";
 const PROFILE_IMAGE = "/anish.jpg";
 
 const App = () => {
@@ -74,17 +74,34 @@ const App = () => {
       image:
         "https://placehold.co/600x400/020617/38bdf8?text=Election Awareness Nepal",
     },
+        {
+      id: 4,
+      title: "Arsenal-Aura",
+      status: "Completed",
+      badge: "Full Stack + AI plans",
+      description:
+        "A website to dedicate love towards the club and connect the fans.",
+      technologies: ["Django", "React", "PostgreSQL", "Tailwind CSS", "REST API", "DOCKER"],
+      githubUrl: "https://github.com/anishupr47-git/Arsenal-Aura",
+      liveUrl: "https://anish-portfolio-nine.vercel.app?_vercel_share=ph6pLhs6ZzKPskG4H0kdM28qeDX7t7ka",
+      note: "Completed",
+      image:
+        "https://placehold.co/600x400/020617/38bdf8?text=Arsenal-Aura",
+    },
   ];
 
   const skills = [
     { name: "Python", icon: Code, level: 75, category: "Backend", status: "Proficient" },
     { name: "Django", icon: Database, level: 75, category: "Backend", status: "Proficient" },
     { name: "REST APIs", icon: Database, level: 75, category: "Backend", status: "Proficient" },
+    { name: "FAST APIs", icon: Database, level: 75, category: "Backend", status: "Proficient" },
     { name: "PostgreSQL", icon: Database, level: 70, category: "Database", status: "Proficient" },
     { name: "React.js", icon: Globe, level: 70, category: "Frontend", status: "Proficient" },
-    { name: "HTML / CSS / Tailwind", icon: Palette, level: 80, category: "Frontend", status: "Proficient" },
+    { name: "Next.js", icon: Globe, level: 70, category: "Frontend", status: "Proficient" },
+    { name: "HTML / CSS / Tailwind/ Javascript", icon: Palette, level: 80, category: "Frontend", status: "Proficient" },
     { name: "Docker", icon: Terminal, level: 70, category: "DevOps", status: "Learning" },
     { name: "Vercel", icon: Rocket, level: 65, category: "Deployment", status: "Proficient" },
+    { name: "Vercel", icon: Render, level: 65, category: "Deployment", status: "Proficient" },
     { name: "Machine Learning", icon: Brain, level: 45, category: "AI / ML", status: "Learning" },
     { name: "AI Integration", icon: Zap, level: 60, category: "AI / ML", status: "Learning" },
     { name: "Git & GitHub", icon: GitBranch, level: 80, category: "Tools", status: "Proficient" },
